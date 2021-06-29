@@ -22,7 +22,7 @@ using namespace std;
 #define NUMBERRANGE 500
 #define SCREENLENGTH 1000
 #define SCREENHEIGHT 650
-#define TITLECOLOUR al_map_rgb(255, 255, 0)
+#define TITLECOLOUR al_map_rgb(0, 0, 255)
 #define FONTCOLOUR al_map_rgb(255, 255, 255)
 #define INDICATION al_map_rgb(255, 0, 0)
 #define INDICATIONTHICKNESS 2
@@ -58,16 +58,32 @@ extern ALLEGRO_FONT *arial;        //arial font
 extern ALLEGRO_FONT *buttonFont;
 extern ALLEGRO_EVENT_QUEUE *event_queue;
 
-//function prototypes
+
+// initializeAllegro() intializes the window and font for allegro                                                                          
 int initializeAllegro();
+// void titleDisplay() displays the title on the window
 void titleDisplay();
+// destroyAllegro() destroys all allegro variables
 void destroyAllegro();
+// userInterface() draws the user interface on the window
 void userInterface();
+// quicksortHB(mouse_state) determines if the mouse position
+//   is within the button for quicksort.
 bool quicksortHB(ALLEGRO_MOUSE_STATE mouse_state);
+// mergesortHB(mouse_state) determines if the mouse position
+//   is within the button for merge sort.
 bool mergesortHB(ALLEGRO_MOUSE_STATE mouse_state);
+// insertionsortHB(mouse_state) determines if the mouse position
+//   is within the button for insertion sort.
 bool insertionsortHB(ALLEGRO_MOUSE_STATE mouse_state);
+// selectionsortHB(mouse_state) determines if the mouse position
+//   is within the button for selection sort.
 bool selectionHB(ALLEGRO_MOUSE_STATE mouse_state);
+// backHB(mouse_state) determines if the mouse position is within 
+//   the button for back
 bool backHB(ALLEGRO_MOUSE_STATE mouse_state);
+// restartHB(mouse_state) determines if the mouse position is within 
+//   the button for restart
 bool restartHB(ALLEGRO_MOUSE_STATE mouse_state);
 
 #endif // _graphicalSorting_h_

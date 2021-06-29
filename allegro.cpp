@@ -24,28 +24,28 @@ int initializeAllegro() {
     al_init_font_addon(); // initialize the font addon
     al_init_ttf_addon();// initialize the ttf (True Type Font) addon
 
-    titleFont = al_load_ttf_font("LVDCGO__.ttf", 40, 0);
+    titleFont = al_load_ttf_font("Assets/LVDCGO__.ttf", 40, 0);
     if (!titleFont) {
         al_show_native_message_box(display, "Error", "Error", "Could not load LVDCGO__.ttf",
                                    nullptr, ALLEGRO_MESSAGEBOX_ERROR);
         return -1;
     }
 
-    stasFont = al_load_ttf_font("arial.ttf", 22, 0);
+    stasFont = al_load_ttf_font("Assets/arial.ttf", 22, 0);
     if (!stasFont) {
         al_show_native_message_box(display, "Error", "Error", "Could not load arial.ttf",
                                    nullptr, ALLEGRO_MESSAGEBOX_ERROR);
         return -1;
     }
 
-    arial = al_load_ttf_font("arial.ttf", 27, 0);
+    arial = al_load_ttf_font("Assets/arial.ttf", 27, 0);
     if (!arial) {
         al_show_native_message_box(display, "Error", "Error", "Could not load arial.ttf",
                                    nullptr, ALLEGRO_MESSAGEBOX_ERROR);
         return -1;
     }
 
-    buttonFont = al_load_ttf_font("arial.ttf", BUTTONFONTSIZE, 0);
+    buttonFont = al_load_ttf_font("Assets/arial.ttf", BUTTONFONTSIZE, 0);
     if (!buttonFont) {
         al_show_native_message_box(display, "Error", "Error", "Could not load arial.ttf",
                                    nullptr, ALLEGRO_MESSAGEBOX_ERROR);
