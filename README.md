@@ -18,10 +18,6 @@ A visualization tool for comparing different sorting algorithms. This applicatio
 - Compare different algorithms on the same dataset
 - Clean, modern UI with system font support
 
-## Screenshots
-
-(Screenshots will be added after the first run)
-
 ## Requirements
 
 - C++17 compatible compiler
