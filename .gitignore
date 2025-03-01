@@ -1,0 +1,74 @@
+# Build directories
+build/
+cmake-build-*/
+
+# Conan files
+conan.lock
+conanbuildinfo.*
+conaninfo.txt
+graph_info.json
+conan_toolchain.cmake
+CMakePresets.json
+conanrun.sh
+conanbuild.sh
+deactivate_conanrun.sh
+deactivate_conanbuild.sh
+conanbuildenv-*.sh
+conanrunenv-*.sh
+*-Target-*.cmake
+*-config-*.cmake
+*-config.cmake
+*-data.cmake
+*Targets.cmake
+cmakedeps_macros.cmake
+conandeps_legacy.cmake
+
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+Makefile
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+GraphicalSorting
+
+# macOS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini 
