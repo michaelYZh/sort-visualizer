@@ -3,37 +3,74 @@
 # Exit on error
 set -e
 
-echo "=== Graphical Sorting Build Script ==="
-
-# Function to display usage information
-show_usage() {
+# Display usage information
+usage() {
+    echo "=== Graphical Sorting Build Script ==="
     echo "Usage: $0 [options]"
     echo "Options:"
-    echo "  --clean    Remove all build artifacts and start fresh"
-    echo "  --help     Display this help message"
-    echo ""
-    echo "If no options are provided, a normal build will be performed."
+    echo "  --clean         Remove all build artifacts and start fresh"
+    echo "  --only          When used with --clean, only clean without building"
+    echo "  --cmake-clean   Use CMake's built-in clean target (requires existing build)"
+    echo "  --help          Display this help message"
+    exit 0
 }
 
 # Process command line arguments
-if [ "$1" = "--help" ]; then
-    show_usage
-    exit 0
-fi
+CLEAN=false
+ONLY_CLEAN=false
+CMAKE_CLEAN=false
 
-if [ "$1" = "--clean" ]; then
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --clean)
+            CLEAN=true
+            shift
+            ;;
+        --only)
+            ONLY_CLEAN=true
+            shift
+            ;;
+        --cmake-clean)
+            CMAKE_CLEAN=true
+            shift
+            ;;
+        --help)
+            usage
+            ;;
+        *)
+            echo "Unknown option: $1"
+            usage
+            ;;
+    esac
+done
+
+# Clean build artifacts if requested
+if [ "$CLEAN" = true ]; then
     echo "Cleaning build artifacts..."
-    rm -rf build
+    rm -rf build/
     rm -f GraphicalSorting
     rm -f CMakeUserPresets.json
     echo "Clean completed. All build artifacts have been removed."
     
-    # Exit if only cleaning was requested
-    if [ "$2" = "--only" ]; then
+    if [ "$ONLY_CLEAN" = true ]; then
         exit 0
+    else
+        echo "Proceeding with a fresh build..."
     fi
-    
-    echo "Proceeding with a fresh build..."
+fi
+
+# Use CMake's built-in clean target if requested
+if [ "$CMAKE_CLEAN" = true ]; then
+    if [ -d "build" ]; then
+        echo "Using CMake's built-in clean target..."
+        cmake --build build --target clean
+        echo "CMake clean completed."
+        exit 0
+    else
+        echo "Error: Build directory does not exist. Cannot use CMake clean."
+        echo "Use --clean instead to remove all artifacts."
+        exit 1
+    fi
 fi
 
 echo "Starting build process..."
