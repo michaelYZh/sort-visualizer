@@ -5,5 +5,14 @@
     },
     "include": [
         "build/CMakePresets.json"
+    ],
+    "buildPresets": [
+        {
+            "name": "clean",
+            "displayName": "Clean Build",
+            "description": "Clean build directory",
+            "configurePreset": "conan-release",
+            "targets": ["clean"]
+        }
     ]
 }

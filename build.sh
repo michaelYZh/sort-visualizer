@@ -4,6 +4,38 @@
 set -e
 
 echo "=== Graphical Sorting Build Script ==="
+
+# Function to display usage information
+show_usage() {
+    echo "Usage: $0 [options]"
+    echo "Options:"
+    echo "  --clean    Remove all build artifacts and start fresh"
+    echo "  --help     Display this help message"
+    echo ""
+    echo "If no options are provided, a normal build will be performed."
+}
+
+# Process command line arguments
+if [ "$1" = "--help" ]; then
+    show_usage
+    exit 0
+fi
+
+if [ "$1" = "--clean" ]; then
+    echo "Cleaning build artifacts..."
+    rm -rf build
+    rm -f GraphicalSorting
+    rm -f CMakeUserPresets.json
+    echo "Clean completed. All build artifacts have been removed."
+    
+    # Exit if only cleaning was requested
+    if [ "$2" = "--only" ]; then
+        exit 0
+    fi
+    
+    echo "Proceeding with a fresh build..."
+fi
+
 echo "Starting build process..."
 
 # Check if conan is installed

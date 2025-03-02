@@ -44,6 +44,24 @@ chmod +x build.sh
 ./build.sh
 ```
 
+### Clean Build
+
+If you want to remove all build artifacts and start fresh:
+
+```bash
+# Using the build script (recommended for convenience)
+./build.sh --clean
+
+# Clean only (without building)
+./build.sh --clean --only
+
+# Alternative: Using CMake's built-in clean target
+cmake --build build --target clean
+
+# Alternative: Using the CMake preset
+cmake --build --preset clean
+```
+
 ### Manual Build
 
 If you prefer to build manually:
