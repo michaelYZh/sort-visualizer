@@ -49,14 +49,21 @@ chmod +x build.sh
 If you prefer to build manually:
 
 ```bash
+# Create build directory
+mkdir -p build
+cd build
+
 # Install dependencies with Conan
-conan install . --build=missing -s build_type=Release
+conan install .. --output-folder=. --build=missing -s build_type=Release
 
 # Configure with CMake
-cmake --preset=conan-release
+cmake --preset=conan-release ..
 
 # Build
 cmake --build . --config Release
+
+# Return to project root
+cd ..
 ```
 
 ### Running the Application
@@ -64,7 +71,11 @@ cmake --build . --config Release
 After building, you can run the application with:
 
 ```bash
+# Run from project root
 ./GraphicalSorting
+
+# Or run directly from the build directory
+./build/GraphicalSorting
 ```
 
 ## Usage
@@ -90,9 +101,14 @@ After building, you can run the application with:
   - `visualization.h` - Visualization declarations
   - `sorting_algorithms.h` - Sorting algorithm declarations
 - `asset/` - Fonts and other resources
+- `build/` - Build artifacts (created during build process)
+  - Contains CMake configuration files, object files, and the executable
+  - All build-related files are isolated in this directory
 - `CMakeLists.txt` - CMake build configuration
 - `conanfile.txt` - Conan dependency configuration
-- `build.sh` - Build script
+- `build.sh` - Build script for easy compilation
+- `LICENSE` - MIT License file
+- `CMakeUserPresets.json` - CMake presets for build configuration
 
 ## License
 
