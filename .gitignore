@@ -9,6 +9,7 @@ conaninfo.txt
 graph_info.json
 conan_toolchain.cmake
 CMakePresets.json
+CMakeUserPresets.json
 conanrun.sh
 conanbuild.sh
 deactivate_conanrun.sh
