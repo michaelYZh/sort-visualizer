@@ -1,4 +1,4 @@
-# Graphical Sorting
+# Sort Visualizer
 
 A visualization tool for comparing different sorting algorithms. This application provides a graphical representation of how various sorting algorithms work, allowing you to see the sorting process in real-time and compare their performance metrics.
 
