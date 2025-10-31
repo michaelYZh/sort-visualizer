@@ -131,8 +131,3 @@ After building, you can run the application with:
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- Original project by Michael Zhang
-- Modernized version using SFML and standard C++ containers
